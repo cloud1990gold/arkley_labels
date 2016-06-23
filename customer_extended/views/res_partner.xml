@@ -55,8 +55,8 @@
                           <field name="sex"/>
                           <field name="pupils_roll"/>
                           <field name="lower_age"/>
-                          <field name="upper_age"/>
                           <field name="def_number"/>
+                          <field name="upper_age"/>
                       </group>
                   </page>
               </page>
