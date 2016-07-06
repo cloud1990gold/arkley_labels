@@ -17,11 +17,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['website_sale'],
+    'depends': ['website_sale_product_customise'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
         'views/product_template.xml',
+        'views/purchase_order.xml',
     ],
 }
