@@ -14,6 +14,25 @@ class purchase_order_line(models.Model):
 			default="image.png",
 	)
 
+	@api.multi
+	def write(self, vals):
+		ir_attachment_obj = self.env['ir.attachment']
+		product_obj = self.env['product.product']
+		for rec in self:
+			if vals.get('customised_image'):
+				attachment_vals = {
+					'res_model': 'purchase.order',
+					'res_id': rec.order_id,
+					'type': 'binary',
+					'datas': vals.get('customised_image'),
+					'name': rec.product_id.name,
+					'store_fname': rec.product_id.name + '.jpg',
+					'datas_fname': rec.product_id.name + '.jpg'
+				}
+				ir_attachment_obj.create(attachment_vals)
+		return True
+
+
 class ProcurementOrder(models.Model):
     _inherit = 'procurement.order'
 
